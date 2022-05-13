@@ -12,6 +12,8 @@ function invertirOrden(array) {
         }
     }
     return newA
+
+    // if (array[i].toString().length === 1) ---> otra opción como condicional 
 };
 
 
@@ -62,6 +64,8 @@ function mismoValorMismosElementos(numero, divisor) {
     // Tiene que devolver un array con la misma cantidad de elementos que el valor del divisor
     // Todos los elementos deben tener el mismo valor
     // OJO: Si el resultado de la division no es un entero, deben devolver false
+
+
     let newAr=[];
     let div= numero/divisor;
     let c=1;
@@ -74,6 +78,22 @@ function mismoValorMismosElementos(numero, divisor) {
         return false;
     }
    return newAr;
+
+    // Otra opción 
+    //if (numero % divisor !== 0) return false
+    // ​
+    //     let total = numero / divisor
+    //     let i = 0
+    //     let array = []
+    // ​
+    //     while (divisor > i) {
+    //         array.push(total)
+    //         i++
+    //     }
+    //     // for (let i=0; divisor>i; i++)
+    // ​
+    //     return array
+
 
 };
 
