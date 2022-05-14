@@ -4,10 +4,20 @@
   "description": "",
   "main": "index.js",
   "directories": {
-    "test": "tests"
+    "test": "test"
   },
   "scripts": {
-    "test": "jest --collectCoverage=false"
+    "test": "jest --collectCoverage=false",
+    "test:old": "jest",
+    "test:01": "jest --verbose --detectOpenHandles 01-arrays.test.js",
+    "test:02": "jest --verbose --detectOpenHandles 02-objects.test.js",
+    "test:03": "jest --verbose --detectOpenHandles 03-functions.test.js",
+    "test:04": "jest --verbose --detectOpenHandles 04-recursion.test.js",
+    "test:05a": "jest --verbose --detectOpenHandles 05-Queue.test.js",
+    "test:05b": "jest --verbose --detectOpenHandles 05-stack.test.js",
+    "test:06": "jest --verbose --detectOpenHandles 06-LinkedList.test.js",
+    "test:07": "jest --verbose --detectOpenHandles 07-Arboles.test.js",
+    "test:08": "jest --verbose --detectOpenHandles 08-Algoritmos.test.js"
   },
   "repository": {
     "type": "git",
@@ -20,6 +30,7 @@
   },
   "homepage": "https://github.com/soyHenry/M1-FT-AUX#readme",
   "dependencies": {
+    "flatted": "^2.0.0",
     "chai": "^4.3.6",
     "jest": "^27.5.1",
     "tape": "^5.5.2"

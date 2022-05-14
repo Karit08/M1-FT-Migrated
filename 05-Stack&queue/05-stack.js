@@ -14,6 +14,58 @@ const { Stack, Queue } = require("../estructuras")
 //   Colombia Argentina: aibmoloC anitnegrA 
 //   Mar Azulado oro : raM odaluzA oro
 
+function efectoEspejo(str) {
+    //tu codigo aqui
+    }
+  
+  const stackito = new Stack();
+  stackito.colocar({ name: "Jaja" });
+  stackito.colocar(3);
+  console.log(stackito);
+  
+  // [{{{{{{{{{{}}}}}}}}}}]
+  // [{}{}{}{}{}]
+  // [[{}{}{}]]
+  // {[{{{{{{}}}}}}]}
+  // [{{{}{}{}{}{}}}]
+  
+  
+  // EXTRAS ---------------------------------------------------------------------------------------------------------------------
+  // En los ejercicios extras no contamos con los tests, por lo que no podemos comprobar que funcione correctamente
+  // a no ser que lo hagamos manualmente con el correcto uso de la consola.
+  //////////////////////////// RECURSIVIDAD //////////////////////////////////////////////////////////////////////////////
+  
+  /* -----------------------------------------------------------------------------------------------------------------*/
+  // Last in First Out
+  // Vemos lo ya implementado en el archivo estructuras.js
+  // function Stack() {
+  //   this.stack = [];
+  // }
+  
+  // Stack.prototype.push = function (el) {
+  //   this.stack.push(el);
+  // };
+  
+  // Stack.prototype.pop = function () {
+  //   return this.stack.pop();
+  // };
+  
+  // Stack.prototype.size = function () {
+  //   return this.stack.length;
+  // };
+  
+  /* ************************************************************************************************* */
+  /*
+    Desarrolla una funcion que al recibir un string, evalue si la cantidad de parentesis estan balanceados
+    Debes usar metodos de STACK
+  
+    ej. parentesisBalanceaDOS("(hola (que (tal)))") --> Todo esta ok
+    ej. parentesisBalanceaDOS("(hola (que (tal)") --> Hay uno o mas paréntesis desbalanceados
+    */
+  
+  function parentesisBalanceaDOS(str) {
+   
+  }
 
 function efectoEspejo(str){  
 //tu codigo aqui

@@ -19,7 +19,12 @@ const { Queue } = require("../estructuras")
 
 var controlAcces = function(queue, event){
     // Tu código aca:
-    
+   let newA=[];
+   //persona mayor 18
+   // tickt mismo de evento
+   //Que no haya el mismo ticket 
+
+   return; 
   };
       
   

@@ -1,10 +1,11 @@
 // Usando la recursion calcular el producto de todos los numeros de dado arreglo
 // ej:
 // producto([1, 2, 5]) devuelve 10
-
+let result=1;
 const producto = function (array) {
   //escribe aqui tu codigo
-
+  if(ini){};
+  return result= result * producto(array[i])
 };
 
 // Dado un objeto con objetos anidados utilizar la recursión para crear una función

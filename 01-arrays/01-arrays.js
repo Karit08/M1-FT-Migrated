@@ -118,6 +118,12 @@ function elementoMenorYMayor(array) {
   return newA;
 };
 
+/* ******************************************************
+
+Que pasaria si los array recibidos fuesen multidimensionales? 
+Depende la consigna, pero se puede recorrer con doble for.
+
+****************************************************** */
 
 
 module.exports = {

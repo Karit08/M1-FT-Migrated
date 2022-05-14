@@ -4,7 +4,7 @@ const {
     elementoMenorYMayor,
     sumaDeArrays,
     mismoValorMismosElementos
-} = require('../01-Arrays/01-arrays.js')
+} = require('../01-arrays/01-arrays.js')
 
 describe('invertirOrden(array)', function() {
     it('Deberia retornar un array con los elementos invertirdos del array que recibe por parametro', function (){
