@@ -1,8 +1,59 @@
-function timeConversion(time){
-// dada la hora en formato hora AM/PM , convertir a la hora militar (24-horas).
-// Recordar: las 12:00:00AM en un reloj de 12 horas son las 00:00:00 en un reloj de 24 horas
-//las 12:00:00PM en un reloj de 12 horas son las 12:00:00 en un reloj de 24 horas 
+function timeConversion(time) {
+  // dada la hora en formato hora AM/PM , convertir a la hora militar (24-horas).
+  // Recordar: las 12:00:00AM en un reloj de 12 horas son las 00:00:00 en un reloj de 24 horas
+  //las 12:00:00PM en un reloj de 12 horas son las 12:00:00 en un reloj de 24 horas 
 
+  let hora = time.slice(0, 2);
+  let min = time.slice(3, 5);
+  let seg = time.slice(6, 8);
+  let ap = time.slice(8, 11);
+  let chora = 12;
+
+  if (time.length < 10) return (false);
+  if (ap === 'AM' || ap === 'PM') {
+    if (hora < 13 && min < 60 && seg < 60 && ap === 'PM') {
+      if (hora === '12') {
+        return chora + ':' + min + ':' + seg;
+      } else {
+        chora = chora + Number(hora);
+        return chora + ':' + min + ':' + seg;
+      }
+    } else if (hora < 13 && min < 60 && seg < 60 && ap === 'AM') {
+      if (hora === '12') {
+        return '00' + ':' + min + ':' + seg;
+      } else {
+        return hora + ':' + min + ':' + seg;
+      }
+    } else { return false; }
+  }
+
+  /*------------> otra opción 
+  if (
+      time.slice(-2) === "AM" &&
+      parseInt(time.slice(3, 5), 10) < 60 &&
+      parseInt(time.slice(6, 8), 10) < 60
+    ) {
+      if (time.slice(0, 2) === "12") {
+        return "00" + time.slice(2, 8);
+      } else {
+        return time.slice(0, 8);
+      }
+    } else {
+      if (
+        parseInt(time.slice(0, 2), 10) < 13 &&
+        parseInt(time.slice(3, 5), 10) < 60 &&
+        parseInt(time.slice(6, 8), 10) < 60
+      ) {
+        let hora = parseInt(time.slice(0, 2), 10) + 12;
+        if (hora === 24) {
+          hora = "12";
+        }
+        return hora + time.slice(2, 8);
+      }
+      return false;
+    }
+  }
+  */
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -12,10 +63,13 @@ function timeConversion(time){
 
 /*
 Crear una funcion saludar que pueda fijar cada vez que la guardo en una variable distintos saludos.
-Recibira en la funcion interna el nombre a quien tiene que saludar y retornara el saludo correspondiente seguido por el nombre al ser invocada
+Recibira en la funcion interna el nombre a quien tiene que saludar y retornara el saludo correspondiente seguido por el nombre al ser invocada.
 */
 function saludar(saludo) {
-  
+  let news = saludo;
+  return function (nombre) {
+    return news + nombre;
+  }
 }
 
 /*---------------------------------------------------*/
@@ -26,23 +80,32 @@ Adicionalmente agregarle una funcion que cuando pasen 8 seg incremente el contad
 
 */
 function contador() {
-  
+  let count = 0;
+  setTimeout(function () {
+    count = 100;
+  }, 8000);
+  return function icrementar(){
+    count= count + 1;
+    return count;
+  };
 }
 
 
 /*---------------------------------------------------*/
 /*
-  Retorna una funcion que cuando sea invocada retorne 
-un valor creciente.
- el primer valor debe ser el que se le pase por 
-parametro a la funcion global.
+  Retorna una funcion que cuando sea invocada retorne un valor creciente.
+ el primer valor debe ser el que se le pase por parametro a la funcion global.
  
  ejemplo: const Pepe = creciendo(20);
  Pepe(); // "El proximo año va a tener 21"
  Pepe(); // "El proximo año va a tener 22"
 */
-function creciendo(n) {
- 
+ function creciendo(n) {
+  let count = n;
+  return function (){
+    count++;
+    return "El proximo año va a tener "+ count;
+  };
 }
 
 /*---------------------------------------------------*/
@@ -60,7 +123,18 @@ function creciendo(n) {
 // newCounter(); // 49
 
 function arribaAbajo(n) {
-  
+  let count = n;
+  if(count>50){
+  return function (){
+    count--;
+    return count;
+  };
+  } else if( count<=50){
+    return function (){
+      count++;
+      return count;
+    };
+  }
 }
 
 /*---------------------------------------------------*/
@@ -75,7 +149,12 @@ function arribaAbajo(n) {
 // - multBySix(4) --> 24
 
 var closureMult = function (multiplier) {
- 
+  let base = multiplier;
+  return function(por){
+    let result; 
+    result = base * por;
+    return result; 
+  }
 };
 
 /*---------------------------------------------------*/
@@ -92,9 +171,9 @@ function cacheFunction(cb) {
   // si la invocas de nuevo con 5, deberia retornar 25 (guardado previament en el cache)
   // Tips, usá un objeto donde cada propiedad sea un argumento, y el valor el resultado.
   // usá hasOwnProperty!
- 
+
 }
 
 module.exports = {
-    timeConversion
+  timeConversion
 }
