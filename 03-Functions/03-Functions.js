@@ -84,8 +84,8 @@ function contador() {
   setTimeout(function () {
     count = 100;
   }, 8000);
-  return function icrementar(){
-    count= count + 1;
+  return function icrementar() {
+    count = count + 1;
     return count;
   };
 }
@@ -100,11 +100,11 @@ function contador() {
  Pepe(); // "El proximo año va a tener 21"
  Pepe(); // "El proximo año va a tener 22"
 */
- function creciendo(n) {
+function creciendo(n) {
   let count = n;
-  return function (){
+  return function () {
     count++;
-    return "El proximo año va a tener "+ count;
+    return "El proximo año va a tener " + count;
   };
 }
 
@@ -124,13 +124,13 @@ function contador() {
 
 function arribaAbajo(n) {
   let count = n;
-  if(count>50){
-  return function (){
-    count--;
-    return count;
-  };
-  } else if( count<=50){
-    return function (){
+  if (count > 50) {
+    return function () {
+      count--;
+      return count;
+    };
+  } else if (count <= 50) {
+    return function () {
       count++;
       return count;
     };
@@ -150,10 +150,10 @@ function arribaAbajo(n) {
 
 var closureMult = function (multiplier) {
   let base = multiplier;
-  return function(por){
-    let result; 
+  return function (por) {
+    let result;
     result = base * por;
-    return result; 
+    return result;
   }
 };
 
@@ -171,7 +171,17 @@ function cacheFunction(cb) {
   // si la invocas de nuevo con 5, deberia retornar 25 (guardado previament en el cache)
   // Tips, usá un objeto donde cada propiedad sea un argumento, y el valor el resultado.
   // usá hasOwnProperty!
-
+  let cache = {}; 
+  return function (arg) {
+    if (cache.hasOwnProperty(arg)) { 
+      return cache[arg]; //---> retornando resultado previamente guardado
+    }
+    else { 
+    cache[arg] = cb(arg); // se guarda el argumento y resultado de la invocavión 
+    return cache[arg];
+    }
+  };
+  //let multi= cacheFunction(function(x) { return x * x; }) ----> multi(4) ---> return 16
 }
 
 module.exports = {
